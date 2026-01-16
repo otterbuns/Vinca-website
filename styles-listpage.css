@@ -10,9 +10,11 @@ html {
 }
 
 body {
-  background-color: #000000;
-  color: #f5f5f5;
+  background-image: url('IMG/Homepage/bg-green-24.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   line-height: 1.6;
+  padding-top: 10vh;
 }
 
 a {
@@ -43,6 +45,7 @@ header {
   background-image: url('IMG/Homepage/bg-green-24.png');
   background-size: cover;
   background-repeat: no-repeat;
+  height: 10vh;
 }
 
 .header-menu {
@@ -411,11 +414,47 @@ header {
 .top-pick {
   display: flex;
   flex-direction: column;
-  height: 100vw;
+  height: 130vw;
   width: 100%;
   background-image: url('IMG/Homepage/bg-green-3.png');
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.top-pick-metropolitan {
+  display: flex;
+  flex-direction: column;
+  height: 130vw;
+  width: 100%;
+  background-image: url('IMG/Homepage/bg-green-3.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.top-pick-metropolitan .top-pick-small-pannel-text {
+  background-color: #BEEAFF;
+}
+
+.top-pick-metropolitan .top-pick-big-pannel-text {
+  background-color: #BEEAFF;
+}
+
+.top-pick-armaggedon {
+  display: flex;
+  flex-direction: column;
+  height: 130vw;
+  width: 100%;
+  background-image: url('IMG/Homepage/bg-green-3.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.top-pick-armaggedon .top-pick-small-pannel-text {
+  background-color: #FEC021;
+}
+
+.top-pick-armaggedon .top-pick-big-pannel-text {
+  background-color: #FEC021;
 }
 
 .top-pick-divider {
@@ -448,7 +487,7 @@ header {
 
 .top-pick-content {
   display: flex;
-  flex: 1;
+  height: 60vw;
   flex-direction: row;
   min-height: 0;
 }
@@ -460,7 +499,11 @@ header {
 }
 
 .top-pick-content-right {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
   width: 40%;
+  gap: 2vw;
 }
 
 .top-pick-big-pannel {
@@ -496,7 +539,7 @@ header {
   display: flex;
   flex-direction: column;
   width: 80%;
-  height: 34.5%;
+  height: 39.5%;
   margin-top: 7.5%;
 }
 
@@ -528,6 +571,23 @@ header {
 .top-pick-big-pannel:hover img,
 .top-pick-small-pannel:hover img {
   transform: translateY(5%);
+}
+
+.top-pick-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 1vw;
+  padding: 0% 8% 0 10%;
+}
+
+.top-pick-bottom .top-pick-small-pannel {
+  width: 35%;
+  height: auto;
+  margin-top: 0;
+}
+
+.top-pick-bottom .top-pick-big-pannel-text {
+  height: auto;
 }
 
 /* Latest news section styles */
