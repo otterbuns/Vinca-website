@@ -4,19 +4,19 @@ window.dispatchEvent(new Event('resize'));
 function setFixedPercentagePositions() {
   const items = document.querySelectorAll('.property-1-equipment-1 img');
   const percentagePositions = [
-    { left: '15%', top: '15%' },   // raincoat
-    { left: '25%', top: '70%' },   // grappling-hook
-    { left: '70%', top: '20%' },   // first-aid-kit
-    { left: '80%', top: '60%' },   // compass
-    { left: '10%', top: '50%' },   // knife
-    { left: '85%', top: '85%' },   // swiss-knife
-    { left: '30%', top: '25%' },   // flashlight
-    { left: '60%', top: '75%' },   // folding
-    { left: '45%', top: '15%' },   // lighter
-    { left: '20%', top: '80%' },   // backpack
-    { left: '75%', top: '35%' },   // matches
-    { left: '50%', top: '55%' },   // keys
-    { left: '40%', top: '90%' }    // cap
+    { left: '60%', top: '40%' },   // raincoat
+    { left: '20%', top: '30%' },   // grappling-hook
+    { left: '30%', top: '50%' },   // first-aid-kit
+    { left: '60%', top: '25%' },   // compass
+    { left: '30%', top: '10%' },   // knife
+    { left: '40%', top: '35%' },   // swiss-knife
+    { left: '57%', top: '15%' },   // flashlight
+    { left: '70%', top: '10%' },   // folding knife
+    { left: '75%', top: '40%' },   // lighter
+    { left: '05%', top: '50%' },   // backpack
+    { left: '60%', top: '50%' },   // matches
+    { left: '00%', top: '20%' },   // keys
+    { left: '10%', top: '15%' }    // cap
   ];
   
   items.forEach((item, index) => {
@@ -36,9 +36,22 @@ window.addEventListener('resize', setFixedPercentagePositions);
 // Also set positions on page load
 window.addEventListener('load', setFixedPercentagePositions);
 
-// Optional: Reset positions with a button or keypress
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'r' || e.key === 'R') {
-    setFixedPercentagePositions();
-  }
+document.addEventListener('DOMContentLoaded', function() {
+  const searchBtn = document.getElementById('search-btn');
+  const searchContainer = document.getElementById('search-container');
+  const searchInput = document.getElementById('search-input');
+  
+  searchBtn.addEventListener('click', function() {
+    searchContainer.classList.toggle('active');
+    if (searchContainer.classList.contains('active')) {
+      searchInput.focus();
+    }
+  });
+  
+  // Close search when clicking outside
+  document.addEventListener('click', function(event) {
+    if (!searchContainer.contains(event.target) && event.target !== searchBtn) {
+      searchContainer.classList.remove('active');
+    }
+  });
 });

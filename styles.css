@@ -34,15 +34,12 @@ a {
   --cyan: rgba(140, 67, 37, 1);
 }
 
-
-
 /* Header styles */
 header {
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 1000;
-
   background-image: url('IMG/Homepage/bg-green-24.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -74,7 +71,7 @@ header {
   display: flex;
   align-items: center;
   width: auto;
-  padding-right: 5vw;
+  position: relative;
 }
 
 .nav-links {
@@ -90,7 +87,8 @@ header {
   margin: 0;
 }
 
-.nav-links a {
+.nav-links a,
+.search-btn {
   font-family: 'Stratos Medium', serif;
   color: #CF8B37;
   font-size: 2vw;
@@ -98,21 +96,47 @@ header {
   text-transform: uppercase;
   letter-spacing: 0.2vw;
   transition: color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.search-btn:hover {
   color: #5F110F;
 }
 
-.search-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.search-container {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 30vw;
+  display: none;
+  background-color: #D1BCA2;
+  padding: 2vh;
+  border-top: 0.3vh solid #CF8B37;
+  box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.1);
 }
 
-.search-icon {
-  width: 3vw;
-  height: auto;
+.search-container.active {
+  display: block;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1.5vh;
+  font-family: 'Stratos Light', serif;
+  font-size: 1.5vw;
+  border: 0.2vh solid #CF8B37;
+  background-color: #fff;
+  color: #192114;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #8C4325;
+  opacity: 0.7;
 }
 
 /* Hero Section*/
@@ -194,7 +218,6 @@ header {
 .property-1-equipment-1 img {
   position: absolute;
   height: auto;
-  /* Maintain aspect ratio */
   cursor: grab;
   pointer-events: auto;
   transition: transform 0.2s ease;
@@ -204,30 +227,110 @@ header {
 
 .raincoat,
 .backpack {
-  width: 20vw;
-}
-
-.first-aid-kit,
-.folding {
-  width: 120px;
-}
-
-.grappling-hook,
-.flashlight {
-  width: 100px;
-}
-
-.swiss-knife,
-.compass,
-.lighter,
-.matches {
-  width: 85px;
+  width: 35vw;
 }
 
 .knife,
+.folding,
+.grappling-hook {
+  width: 25vw;
+}
+
 .keys,
+.cap,
+.swiss-knife,
+.compass,
+.matches,
+.first-aid-kit {
+  width: 15vw;
+}
+
+.lighter,
+.flashlight {
+  width: 10vw;
+}
+
+/* Bobbing animation for all items */
+.raincoat,
+.backpack,
+.knife,
+.folding,
+.grappling-hook,
+.keys,
+.cap,
+.swiss-knife,
+.compass,
+.matches,
+.first-aid-kit,
+.lighter,
+.flashlight {
+  animation: bob 3s ease-in-out infinite;
+}
+
+/* Different animation delays for variety */
+.raincoat {
+  animation-delay: 0s;
+}
+
+.backpack {
+  animation-delay: 0.2s;
+}
+
+.knife {
+  animation-delay: 0.4s;
+}
+
+.folding {
+  animation-delay: 0.6s;
+}
+
+.grappling-hook {
+  animation-delay: 0.8s;
+}
+
+.keys {
+  animation-delay: 1s;
+}
+
 .cap {
-  width: 70px;
+  animation-delay: 1.2s;
+}
+
+.swiss-knife {
+  animation-delay: 1.4s;
+}
+
+.compass {
+  animation-delay: 1.6s;
+}
+
+.matches {
+  animation-delay: 1.8s;
+}
+
+.first-aid-kit {
+  animation-delay: 2s;
+}
+
+.lighter {
+  animation-delay: 2.2s;
+}
+
+.flashlight {
+  animation-delay: 2.4s;
+}
+
+/* Bob animation keyframes */
+@keyframes bob {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2vh);
+  }
 }
 
 /* Hover effects */
